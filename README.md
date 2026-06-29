@@ -1,4 +1,4 @@
-# HerSafeRide
+# Avenixgo 
 
 Android/Kotlin ride safety app.
 
