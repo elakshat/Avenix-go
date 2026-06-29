@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Deep Black Aesthetic for OLED -->
+    <color name="bg_dark">#000000</color>
+    <color name="surface_dark">#0F0F0F</color>
+    <color name="surface_variant_dark">#1A1A1A</color>
+    <color name="surface_bright">#242424</color>
+
+    <!-- Branding & Accents (Vivid Yellow & Safety Red) -->
+    <color name="accent_yellow">#D8FF43</color>
+    <color name="accent_yellow_dark">#B5D638</color>
+    <color name="accent_yellow_alpha">#1AD8FF43</color>
+    <color name="accent_yellow_alpha_20">#33D8FF43</color>
+    <color name="accent_red">#FF3B30</color>
+    <color name="accent_red_dark">#D73229</color>
+    <color name="accent_red_alpha">#1AFF3B30</color>
+    <color name="accent_red_alpha_20">#33FF3B30</color>
+
+    <!-- Pink Accents (Missing) -->
+    <color name="pink_500">#E91E63</color>
+    <color name="pink_primary">#FF4081</color>
+
+    <!-- Neutral Colors -->
+    <color name="neutral_200">#EEEEEE</color>
+
+    <!-- Glassmorphism - Improved Alphas -->
+    <color name="glass_white_5">#0DFFFFFF</color>
+    <color name="glass_white_10">#1AFFFFFF</color>
+    <color name="glass_white_15">#26FFFFFF</color>
+    <color name="glass_white_20">#33FFFFFF</color>
+    <color name="glass_black_50">#80000000</color>
+    <color name="glass_black_80">#CC000000</color>
+
+    <!-- Text Palette -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#E0E0E0</color>
+    <color name="text_muted">#8E8E93</color>
+
+    <!-- Borders & Dividers -->
+    <color name="border_dark">#2C2C2E</color>
+    <color name="divider_dark">#1C1C1E</color>
+
+    <!-- Status Colors -->
+    <color name="error_red">#FF453A</color>
+    <color name="success_green">#32D74B</color>
+    <color name="warning_orange">#FF9F0A</color>
+    <color name="info_blue">#0A84FF</color>
+
+    <!-- Aliases and Material 3 Mapping -->
+    <color name="md_theme_primary">@color/accent_yellow</color>
+    <color name="md_theme_onPrimary">@color/black</color>
+    <color name="md_theme_background">@color/bg_dark</color>
+    <color name="md_theme_surface">@color/surface_dark</color>
+    <color name="md_theme_onSurface">@color/text_primary</color>
+    <color name="md_theme_surfaceVariant">@color/surface_variant_dark</color>
+    <color name="md_theme_onSurfaceVariant">@color/text_secondary</color>
+</resources>

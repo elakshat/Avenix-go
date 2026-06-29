@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please select a reason for cancellation:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp" />
+
+    <RadioGroup
+        android:id="@+id/rgCancellationReasons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbLongWait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Driver taking too long" />
+
+        <RadioButton
+            android:id="@+id/rbWrongLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wrong pickup location" />
+
+        <RadioButton
+            android:id="@+id/rbByMistake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Booked by mistake" />
+
+        <RadioButton
+            android:id="@+id/rbDriverAsked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Driver asked to cancel" />
+
+        <RadioButton
+            android:id="@+id/rbOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:checked="true" />
+    </RadioGroup>
+</LinearLayout>

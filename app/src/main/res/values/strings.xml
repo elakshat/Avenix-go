@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">WayGo</string>
+    <string name="default_web_client_id">746099447498-ttqk29hbp21e277sboltd6gl9nkrr6v0.apps.googleusercontent.com</string>
+    <string name="fetching_address">Fetching address...</string>
+    <string name="address_not_found">Address not found</string>
+    <string name="error_fetching_address">Error fetching address</string>
+    <string name="location_permission_denied">Location permission denied</string>
+    <string name="ride_completed_safely">Ride completed safely.</string>
+    <string name="emergency_contacts_notified_ride_started">Emergency contacts notified: Ride started</string>
+    <string name="your_live_location">Your Live Location</string>
+    <string name="solo_female_trip">Solo Female Trip</string>
+    <string name="searching_female_drivers">Searching Female Drivers...</string>
+    <string name="female_partners_matching">WayGo matching you with top-rated female partners</string>
+    <string name="current_location">Current Location</string>
+
+    <!-- UI Strings -->
+    <string name="choose_your_ride">Choose your ride</string>
+    <string name="trip_preferences">Trip Preferences</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="safe_and_secure_message">Safe and secure journeys for every woman.</string>
+    <string name="or_continue_with">or continue with</string>
+    <string name="google">Google</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="journey_start_message">Your journey to safety starts here.</string>
+    <string name="create_password">Create Password</string>
+    <string name="already_have_account">Already have an account? </string>
+    <string name="login">Login</string>
+    <string name="account">Account</string>
+    <string name="safety_support">Safety &amp; Support</string>
+    <string name="general">General</string>
+    <string name="category_ride">Ride</string>
+    <string name="category_package">Package</string>
+    <string name="category_intercity">Intercity</string>
+    <string name="category_rentals">Rentals</string>
+    <string name="category_reserve">Reserve</string>
+    <string name="category_fake_call">Fake Call</string>
+    <string name="confirm_trip_format">Confirm WayGo %1$s</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="type_message_hint">Type a message...</string>
+
+    <!-- SOS Screen -->
+    <string name="call_police">Call Police (100)</string>
+    <string name="call_women_helpline">Call Women Helpline (1091)</string>
+    <string name="call_emergency_contact">Call Emergency Contact</string>
+    <string name="cancel_sos">I am safe, cancel SOS</string>
+
+    <!-- Profile & Stats -->
+    <string name="safety_score_format">Safety Score: %1$d</string>
+    <string name="wallet_balance_format">₹%1$.2f</string>
+    <string name="total_rides">TOTAL RIDES</string>
+    <string name="wallet">WALLET</string>
+    <string name="version_format">Version %1$s</string>
+
+    <!-- Genders -->
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="other">Other</string>
+
+</resources>

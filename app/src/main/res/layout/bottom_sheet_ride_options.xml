@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_bg_dark"
+    android:descendantFocusability="afterDescendants"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="340dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/screen_padding"
+        android:paddingBottom="@dimen/spacing_xxl">
+
+        <View
+            android:id="@+id/viewHandle"
+            android:layout_width="40dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:background="@color/border_dark"
+            android:backgroundTint="@color/glass_white_20" />
+
+        <!-- Location Selection State -->
+        <LinearLayout
+            android:id="@+id/llLocationSelection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_l"
+                android:fontFamily="sans-serif-black"
+                android:text="Where to?"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:letterSpacing="-0.04" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/surface_dark"
+                app:strokeColor="@color/border_dark">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
+
+                    <LinearLayout
+                        android:id="@+id/llVisuals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingTop="26dp"
+                        android:paddingBottom="26dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <View
+                            android:id="@+id/dotPickup"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/accent_yellow" />
+
+                        <View
+                            android:layout_width="1.5dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginVertical="6dp"
+                            android:background="@color/border_dark" />
+
+                        <View
+                            android:id="@+id/dotDest"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toStartOf="@id/btnSwapLocations"
+                        app:layout_constraintStart_toEndOf="@id/llVisuals"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <EditText
+                            android:id="@+id/etPickupLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_height"
+                            android:background="@android:color/transparent"
+                            android:hint="Current location"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/text_muted"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:singleLine="true"
+                            android:imeOptions="actionNext"
+                            android:paddingEnd="16dp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/divider_dark" />
+
+                        <EditText
+                            android:id="@+id/etReturnLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_height"
+                            android:background="@android:color/transparent"
+                            android:hint="Search destination"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/text_muted"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:singleLine="true"
+                            android:imeOptions="actionSearch"
+                            android:paddingEnd="16dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnSwapLocations"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_marginEnd="10dp"
+                        app:cardBackgroundColor="@color/surface_variant_dark"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/border_dark">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="12dp"
+                            android:src="@android:drawable/stat_notify_sync"
+                            app:tint="@color/white"
+                            android:contentDescription="Swap Locations" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Timing Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="SCHEDULE RIDE"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/llSelectedDate"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_weight="1.2"
+                    android:background="@drawable/bg_input_field"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calendar"
+                        app:tint="@color/accent_yellow"
+                        android:contentDescription="Date Picker" />
+
+                    <TextView
+                        android:id="@+id/tvSelectedDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="sans-serif-bold"
+                        android:text="Today"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llSelectedTime"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input_field"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/accent_yellow"
+                        android:contentDescription="Time Picker" />
+
+                    <TextView
+                        android:id="@+id/tvSelectedTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="sans-serif-bold"
+                        android:text="Now"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookRide"
+                style="@style/WayGoButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="See Pricing"
+                app:elevation="4dp" />
+        </LinearLayout>
+
+        <!-- Cab Type Selection -->
+        <LinearLayout
+            android:id="@+id/llRideSelection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_l"
+                android:fontFamily="sans-serif-black"
+                android:text="Choose a ride"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:letterSpacing="-0.02" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:scrollbars="none"
+                android:clipToPadding="false"
+                android:paddingBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/item_ride_card" android:id="@+id/cardMini" />
+                    <include layout="@layout/item_ride_card" android:id="@+id/cardSedan" />
+                    <include layout="@layout/item_ride_card" android:id="@+id/cardSUV" />
+                    <include layout="@layout/item_ride_card" android:id="@+id/cardAuto" />
+                    <include layout="@layout/item_ride_card" android:id="@+id/cardBike" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m"
+                app:cardBackgroundColor="@color/surface_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_m"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_agenda"
+                        app:tint="@color/accent_yellow"
+                        android:contentDescription="Payment Method" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Personal • Cash"
+                        android:textColor="@color/white"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change"
+                        android:textColor="@color/accent_yellow"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirmBooking"
+                style="@style/WayGoButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:layout_marginTop="@dimen/spacing_l"
+                android:text="Confirm WayGo"
+                app:elevation="4dp" />
+        </LinearLayout>
+
+        <!-- Searching Ride Section -->
+        <LinearLayout
+            android:id="@+id/llSearchingRide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:gravity="center"
+            android:paddingTop="@dimen/spacing_xl">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieSearchingInside"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/search" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_l"
+                android:text="Searching for drivers..."
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_s"
+                android:text="We are finding the safest driver\nnear your pickup location."
+                android:textAlignment="center"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                app:lineHeight="22sp"
+                tools:targetApi="p" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelSearchInside"
+                style="@style/WayGoButton.Tonal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:layout_marginTop="40dp"
+                android:text="Cancel Request" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

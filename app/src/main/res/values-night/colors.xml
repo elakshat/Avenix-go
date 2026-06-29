@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode Specific Color Overrides -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="uber_gray_100">#121212</color> <!-- Surface dark -->
+    <color name="uber_gray_200">#1E1E1E</color> <!-- Elevation 1 -->
+    <color name="uber_gray_300">#2C2C2C</color> <!-- Elevation 2 -->
+    <color name="uber_gray_400">#3E3E3E</color> <!-- Elevation 3 -->
+    <color name="uber_gray_500">#BDBDBD</color> <!-- Text secondary -->
+
+    <color name="pink_50">#2D1B21</color> <!-- Dark pink container -->
+</resources>

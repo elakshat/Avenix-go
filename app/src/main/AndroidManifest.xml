@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+    <application
+        android:name=".WayGoApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WayGo"
+        android:enableOnBackInvokedCallback="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".auth.RegisterActivity" />
+        <activity android:name=".auth.OTPVerificationActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".emergency.SOSActivity" />
+        <activity android:name=".emergency.EmergencyContactsActivity" />
+        <activity android:name=".emergency.HelplinesActivity" />
+        <activity android:name=".ride.RideTrackingActivity" />
+        <activity android:name=".ride.RideCompletedActivity" />
+        <activity android:name=".ride.RideHistoryActivity" />
+        <activity android:name=".ride.ScheduleRideActivity" />
+        <activity android:name=".ride.PackageDeliveryActivity" />
+        <activity android:name=".ride.RentalsActivity" />
+        <activity android:name=".ride.IntercityActivity" />
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".profile.PaymentActivity" />
+        <activity android:name=".profile.SafetySettingsActivity" />
+        <activity android:name=".dashboard.SafetyDashboardActivity" />
+        <activity android:name=".emergency.AudioRecordingActivity" />
+        <activity android:name=".admin.AdminDashboardActivity" />
+        <activity android:name=".admin.UserManagementActivity" />
+        <activity android:name=".admin.DriverManagementActivity" />
+        <activity android:name=".profile.ReferEarnActivity" />
+        <activity android:name=".profile.HelpActivity" />
+        <activity android:name=".profile.NotificationsActivity" />
+        <activity android:name=".profile.SavedPlacesActivity" />
+        <activity android:name=".profile.MembershipActivity" />
+        <activity android:name=".profile.EditProfileActivity" />
+        <activity android:name=".auth.OnboardingContactsActivity" />
+        <activity android:name=".ride.ChatActivity" />
+
+        <activity
+            android:name=".emergency.LiveAudioListenerActivity"
+            android:exported="true"
+            android:theme="@style/Theme.WayGo">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="waygo.com"
+                    android:pathPrefix="/live-audio"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".FakeCallActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.WayGo" />
+
+        <service
+            android:name=".ride.LiveLocationService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <service
+            android:name=".emergency.AudioRecordingService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <service
+            android:name=".emergency.LiveAudioService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+    </application>
+
+</manifest>

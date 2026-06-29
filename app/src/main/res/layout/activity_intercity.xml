@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    tools:context=".ride.IntercityActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dark"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:navigationIconTint="@color/white"
+            app:title="WayGo Intercity"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.App.TitleLarge" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/llMainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_s"
+                    android:paddingBottom="40dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/WayGoCard.Glass"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerInside"
+                            android:src="@android:drawable/ic_dialog_map"
+                            app:tint="@color/accent_yellow"
+                            android:padding="48dp"
+                            android:contentDescription="Intercity Illustration" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xl"
+                        android:text="Intercity Rides"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="-0.03" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:text="Safe and comfortable outstation travel with our top-rated partners."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        app:lineHeight="22sp"
+                        tools:targetApi="p" />
+
+                    <!-- Locations Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/WayGoCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xl"
+                        app:strokeColor="@color/border_dark">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/spacing_s">
+
+                            <!-- From -->
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/input_height"
+                                android:paddingHorizontal="@dimen/screen_padding">
+
+                                <View
+                                    android:id="@+id/dotFrom"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/circle_shape"
+                                    android:backgroundTint="@color/accent_yellow" />
+
+                                <EditText
+                                    android:id="@+id/etFromCity"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_toEndOf="@id/dotFrom"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@android:color/transparent"
+                                    android:hint="Leaving from"
+                                    android:textColorHint="@color/text_muted"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:singleLine="true" />
+                            </RelativeLayout>
+
+                            <View style="@style/ProfileDivider" />
+
+                            <!-- To -->
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/input_height"
+                                android:paddingHorizontal="@dimen/screen_padding">
+
+                                <View
+                                    android:id="@+id/dotTo"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/circle_shape"
+                                    android:backgroundTint="@color/text_muted" />
+
+                                <EditText
+                                    android:id="@+id/etToCity"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_toEndOf="@id/dotTo"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@android:color/transparent"
+                                    android:hint="Going to"
+                                    android:textColorHint="@color/text_muted"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:singleLine="true" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Trip Type Toggle -->
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleTripType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_l"
+                        app:singleSelection="true"
+                        app:selectionRequired="true"
+                        app:checkedButton="@+id/btnOneWay">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnOneWay"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:text="One-way"
+                            android:textColor="@color/white"
+                            app:cornerRadius="16dp"
+                            app:strokeColor="@color/border_dark"
+                            android:fontFamily="sans-serif-black" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRoundTrip"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1"
+                            android:text="Round-trip"
+                            android:textColor="@color/white"
+                            app:cornerRadius="16dp"
+                            app:strokeColor="@color/border_dark"
+                            android:fontFamily="sans-serif-black" />
+
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSearchIntercity"
+                style="@style/WayGoButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginHorizontal="@dimen/screen_padding"
+                android:layout_marginBottom="@dimen/spacing_l"
+                android:text="Search Available Rides" />
+        </LinearLayout>
+
+        <!-- Searching State -->
+        <LinearLayout
+            android:id="@+id/llSearchingState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_dark"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="@dimen/spacing_xl">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieSearching"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/search" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="Finding Intercity Partners..."
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelSearch"
+                style="@style/WayGoButton.Tonal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/spacing_xxl"
+                android:text="Cancel Request" />
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

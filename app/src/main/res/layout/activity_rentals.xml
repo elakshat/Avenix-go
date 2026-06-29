@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    tools:context=".ride.RentalsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dark"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:navigationIconTint="@color/white"
+            app:title="WayGo Rentals"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/llMainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="40dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/WayGoCard.Glass"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerInside"
+                            android:src="@android:drawable/ic_menu_directions"
+                            app:tint="@color/accent_yellow"
+                            android:padding="48dp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:text="Hourly Rentals"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="-0.03" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Book a car and a professional partner for as long as you need. Perfect for multiple stops or long meetings."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:lineHeight="22sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="36dp"
+                        android:text="SELECT PACKAGE"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-black"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.1" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:scrollbars="none"
+                        android:clipToPadding="false">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="8dp">
+
+                            <!-- 1 Hour -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/card1Hour"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardBackgroundColor="@color/surface_variant_dark"
+                                app:cardCornerRadius="24dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="2dp"
+                                app:strokeColor="@color/accent_yellow">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="20dp">
+                                    <TextView
+                                        android:id="@+id/tv1HourTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1 hr"
+                                        android:textColor="@color/white"
+                                        android:textSize="20sp"
+                                        android:fontFamily="sans-serif-black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10 km"
+                                        android:textColor="@color/text_secondary"
+                                        android:textSize="14sp"
+                                        android:layout_marginTop="2dp" />
+                                    <TextView
+                                        android:id="@+id/tv1HourPrice"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:text="₹299"
+                                        android:textColor="@color/accent_yellow"
+                                        android:textSize="18sp"
+                                        android:fontFamily="sans-serif-black" />
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- 2 Hours -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/card2Hours"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                app:cardBackgroundColor="@color/surface_dark"
+                                app:cardCornerRadius="24dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="@color/border_dark">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="20dp">
+                                    <TextView
+                                        android:id="@+id/tv2HoursTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2 hr"
+                                        android:textColor="@color/white"
+                                        android:textSize="20sp"
+                                        android:fontFamily="sans-serif-black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="20 km"
+                                        android:textColor="@color/text_secondary"
+                                        android:textSize="14sp"
+                                        android:layout_marginTop="2dp" />
+                                    <TextView
+                                        android:id="@+id/tv2HoursPrice"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:text="₹499"
+                                        android:textColor="@color/white"
+                                        android:textSize="18sp"
+                                        android:fontFamily="sans-serif-black" />
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- 4 Hours -->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/card4Hours"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                app:cardBackgroundColor="@color/surface_dark"
+                                app:cardCornerRadius="24dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="@color/border_dark">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="20dp">
+                                    <TextView
+                                        android:id="@+id/tv4HoursTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="4 hr"
+                                        android:textColor="@color/white"
+                                        android:textSize="20sp"
+                                        android:fontFamily="sans-serif-black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="40 km"
+                                        android:textColor="@color/text_secondary"
+                                        android:textSize="14sp"
+                                        android:layout_marginTop="2dp" />
+                                    <TextView
+                                        android:id="@+id/tv4HoursPrice"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:text="₹899"
+                                        android:textColor="@color/white"
+                                        android:textSize="18sp"
+                                        android:fontFamily="sans-serif-black" />
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/WayGoCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="24dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Usage Policy"
+                                android:textColor="@color/white"
+                                android:textSize="17sp"
+                                android:fontFamily="sans-serif-black" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="• Add as many stops as you need during your rental."
+                                android:textColor="@color/text_secondary"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="• Overage charges apply for extra time or distance."
+                                android:textColor="@color/text_secondary"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookRental"
+                style="@style/WayGoButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="24dp"
+                android:text="Confirm Rental" />
+        </LinearLayout>
+
+        <!-- Searching State (Enhanced) -->
+        <LinearLayout
+            android:id="@+id/llSearchingState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_dark"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="32dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieSearching"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/search" />
+
+            <TextView
+                android:id="@+id/tvSearchingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Matching with partner..."
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelSearch"
+                style="@style/WayGoButton.Tonal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="48dp"
+                android:text="Cancel Request" />
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

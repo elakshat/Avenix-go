@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dark"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:navigationIconTint="@color/white"
+            app:title="Support"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.App.TitleLarge" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingTop="@dimen/spacing_s"
+            android:paddingBottom="@dimen/spacing_xxl">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="POPULAR TOPICS"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.15" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/spacing_s">
+
+                    <TextView
+                        android:id="@+id/btnTripIssues"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Trips and Refunds"
+                        app:drawableStartCompat="@android:drawable/ic_menu_recent_history"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                    <View style="@style/ProfileDivider" />
+
+                    <TextView
+                        android:id="@+id/btnAccountHelp"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Account &amp; Security"
+                        app:drawableStartCompat="@android:drawable/ic_lock_idle_lock"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                    <View style="@style/ProfileDivider" />
+
+                    <TextView
+                        android:id="@+id/btnSafetyHelp"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Safety Resources"
+                        app:drawableStartCompat="@android:drawable/ic_dialog_info"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                    <View style="@style/ProfileDivider" />
+
+                    <TextView
+                        android:id="@+id/btnCovidHelp"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Ride Guidelines"
+                        app:drawableStartCompat="@android:drawable/ic_menu_directions"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Support Card (Glass Style) -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard.Glass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_l">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Still need help?"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:text="Our safety and support team is available 24/7 to ensure your peace of mind."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        app:lineHeight="22sp"
+                        tools:targetApi="p" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnContactSupport"
+                        style="@style/WayGoButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="@dimen/spacing_xl"
+                        android:text="Contact Support"
+                        app:icon="@android:drawable/ic_menu_send"
+                        app:iconTint="@color/black"
+                        app:iconGravity="textStart"
+                        app:iconPadding="12dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

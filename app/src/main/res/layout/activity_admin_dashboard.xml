@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dark"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:navigationIconTint="@color/white"
+            app:title="Admin Console"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="RtlHardcoded">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/circle_shape"
+                    android:backgroundTint="@color/success_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="LIVE"
+                    android:textColor="@color/success_green"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.1" />
+            </LinearLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="48dp">
+
+            <!-- Welcome Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="System Overview"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Real-time monitoring and controls"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <!-- Stats Grid -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:columnCount="2"
+                android:alignmentMode="alignMargins">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/WayGoCard">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_myplaces"
+                            app:tint="@color/accent_yellow"
+                            android:layout_marginBottom="12dp"
+                            android:contentDescription="Total Users Icon" />
+                        <TextView
+                            android:id="@+id/tvTotalUsers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="28sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="sans-serif-black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Users"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_muted"
+                            android:textAllCaps="true"
+                            android:fontFamily="sans-serif-black"
+                            android:letterSpacing="0.05"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardActiveSos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="@color/accent_red"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp"
+                    app:strokeWidth="0dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_dialog_alert"
+                            app:tint="@color/white"
+                            android:layout_marginBottom="12dp"
+                            android:contentDescription="Active SOS Icon" />
+                        <TextView
+                            android:id="@+id/tvActiveEmergencies"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="28sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="sans-serif-black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Active SOS"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:textAllCaps="true"
+                            android:fontFamily="sans-serif-black"
+                            android:letterSpacing="0.05"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="6dp"
+                    style="@style/WayGoCard">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_directions"
+                            app:tint="@color/accent_yellow"
+                            android:layout_marginBottom="12dp"
+                            android:contentDescription="Online Drivers Icon" />
+                        <TextView
+                            android:id="@+id/tvActiveDrivers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="28sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="sans-serif-black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Online Drivers"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_muted"
+                            android:textAllCaps="true"
+                            android:fontFamily="sans-serif-black"
+                            android:letterSpacing="0.05"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="6dp"
+                    style="@style/WayGoCard">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_agenda"
+                            app:tint="@color/accent_yellow"
+                            android:layout_marginBottom="12dp"
+                            android:contentDescription="Completed Rides Icon" />
+                        <TextView
+                            android:id="@+id/tvTotalRides"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="28sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="sans-serif-black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Completed"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_muted"
+                            android:textAllCaps="true"
+                            android:fontFamily="sans-serif-black"
+                            android:letterSpacing="0.05"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="SOS MONITOR"
+                android:textColor="@color/accent_red"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardEmergencyContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@style/WayGoCard"
+                app:strokeColor="@color/accent_red_alpha">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvEmergencyAlerts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_emergency_alert"
+                        tools:itemCount="1"/>
+
+                    <TextView
+                        android:id="@+id/tvEmptyAlerts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="32dp"
+                        android:gravity="center"
+                        android:text="No active emergency alerts"
+                        android:textColor="@color/text_muted"
+                        android:fontFamily="sans-serif-medium" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="SYSTEM TOOLS"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
+
+                    <TextView
+                        android:id="@+id/btnManageUsers"
+                        style="@style/ProfileOptionStyle"
+                        android:text="User Database"
+                        app:drawableStartCompat="@android:drawable/ic_menu_myplaces"
+                        app:drawableEndCompat="@android:drawable/ic_media_play"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                    <View style="@style/ProfileDivider" />
+
+                    <TextView
+                        android:id="@+id/btnManageDrivers"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Driver Approvals"
+                        app:drawableStartCompat="@android:drawable/ic_menu_directions"
+                        app:drawableEndCompat="@android:drawable/ic_media_play"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                    <View style="@style/ProfileDivider" />
+
+                    <TextView
+                        android:id="@+id/btnViewSafetyRecordings"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Safety Audio Vault"
+                        app:drawableStartCompat="@android:drawable/ic_btn_speak_now"
+                        app:drawableEndCompat="@android:drawable/ic_media_play"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                    <View style="@style/ProfileDivider" />
+
+                    <TextView
+                        android:id="@+id/btnBroadcastMessage"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Broadcast Alert"
+                        app:drawableStartCompat="@android:drawable/ic_dialog_info"
+                        app:drawableEndCompat="@android:drawable/ic_media_play"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                    <View style="@style/ProfileDivider" />
+
+                    <TextView
+                        android:id="@+id/btnSystemSettings"
+                        style="@style/ProfileOptionStyle"
+                        android:text="System Status"
+                        app:drawableStartCompat="@android:drawable/ic_menu_manage"
+                        app:drawableEndCompat="@android:drawable/ic_media_play"
+                        android:drawablePadding="20dp"
+                        app:drawableTint="@color/text_muted" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogoutAdmin"
+                style="@style/WayGoButton.Tonal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="48dp"
+                android:text="Secure Logout"
+                android:textColor="@color/accent_red"
+                app:icon="@android:drawable/ic_lock_power_off"
+                app:iconTint="@color/accent_red"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

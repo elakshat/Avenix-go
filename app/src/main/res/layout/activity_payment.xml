@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_dark"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:navigationIconTint="@color/white"
+            app:title="Wallet &amp; Payment"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.App.TitleLarge" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingTop="@dimen/spacing_s"
+            android:paddingBottom="@dimen/spacing_xxl">
+
+            <!-- Wallet Balance Card (Glass Style) -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard.Glass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_xl">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WAYGO CASH"
+                        android:textColor="@color/accent_yellow"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-black"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.1" />
+
+                    <TextView
+                        android:id="@+id/tvUberCashBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹0.00"
+                        android:textColor="@color/white"
+                        android:textSize="44sp"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="-0.04" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddFunds"
+                        style="@style/WayGoButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="@dimen/spacing_xl"
+                        android:text="Add Funds"
+                        app:icon="@android:drawable/ic_input_add"
+                        app:iconTint="@color/black"
+                        app:iconGravity="textStart"
+                        app:iconPadding="12dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="PAYMENT METHODS"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:textAllCaps="true"
+                android:letterSpacing="0.15" />
+
+            <!-- Payment Methods Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/spacing_s">
+
+                    <!-- Cash Method -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="72dp"
+                        android:paddingHorizontal="@dimen/screen_padding"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivCashIcon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="10dp"
+                            android:layout_centerVertical="true"
+                            android:src="@android:drawable/ic_menu_send"
+                            app:tint="@color/text_muted"
+                            android:background="@color/surface_variant_dark"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.MediumComponent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="16dp"
+                            android:layout_toEndOf="@id/ivCashIcon"
+                            android:text="Cash"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-black" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:checked="true"
+                            android:buttonTint="@color/accent_yellow" />
+                    </RelativeLayout>
+
+                    <View style="@style/ProfileDivider" />
+
+                    <!-- Add Payment Method -->
+                    <TextView
+                        android:id="@+id/btnAddPaymentMethod"
+                        style="@style/ProfileOptionStyle"
+                        android:text="Add Payment Method"
+                        android:textColor="@color/accent_yellow"
+                        app:drawableStartCompat="@android:drawable/ic_input_add"
+                        android:drawablePadding="16dp"
+                        app:drawableTint="@color/accent_yellow" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="PROMOTIONS"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-black"
+                android:textAllCaps="true"
+                android:letterSpacing="0.15" />
+
+            <!-- Promotions Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m">
+
+                <TextView
+                    android:id="@+id/btnAddPromoCode"
+                    style="@style/ProfileOptionStyle"
+                    android:text="Add Promo Code"
+                    app:drawableStartCompat="@android:drawable/ic_menu_info_details"
+                    android:drawablePadding="16dp"
+                    app:drawableTint="@color/text_muted" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

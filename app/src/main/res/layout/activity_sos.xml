@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    tools:context=".emergency.SOSActivity">
+
+    <!-- Pulsing Background Effect -->
+    <View
+        android:id="@+id/pulseBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:background="@color/accent_red" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+        app:navigationIconTint="@color/white"
+        app:title="Emergency Center"
+        app:titleTextColor="@color/white"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/TextAppearance.App.TitleLarge" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/bottomActions"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingTop="@dimen/spacing_xl"
+            android:paddingBottom="@dimen/spacing_xxl">
+
+            <!-- SOS Animation Container -->
+            <FrameLayout
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:gravity="center">
+
+                <!-- Outer Ring -->
+                <View
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_shape"
+                    android:backgroundTint="@color/accent_red_alpha_20" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/sosAnimationContainer"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="80dp"
+                    app:cardElevation="32dp"
+                    app:cardBackgroundColor="@color/accent_red"
+                    app:strokeWidth="0dp">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/sosAnimation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="36dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/sos_alert"
+                        app:lottie_colorFilter="@color/white"/>
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvAlertStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="SOS ACTIVE"
+                android:textColor="@color/accent_red"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05" />
+
+            <TextView
+                android:id="@+id/tvAlertDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m"
+                android:text="Your live location is being broadcasted to your safety circle and emergency services."
+                android:textAlignment="center"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                app:lineHeight="22sp"
+                tools:targetApi="p" />
+
+            <!-- Status Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/WayGoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:cardBackgroundColor="@color/surface_dark"
+                app:strokeColor="@color/accent_red_alpha">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_l">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PROTECTION ACTIVE"
+                        android:textColor="@color/accent_red"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.15"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:gravity="center_vertical">
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/success_green"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_m"
+                            android:text="Live GPS tracking enabled"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_s"
+                        android:gravity="center_vertical">
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/success_green"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_m"
+                            android:text="Safety Circle notified via SMS"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_s"
+                        android:gravity="center_vertical">
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/circle_shape"
+                            android:backgroundTint="@color/success_green"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_m"
+                            android:text="Audio vault recording started"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCallPolice"
+                    style="@style/WayGoButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height"
+                    android:text="Call Police (100)"
+                    android:textColor="@color/white"
+                    app:strokeColor="@color/border_dark"
+                    app:icon="@android:drawable/ic_menu_call"
+                    app:iconTint="@color/accent_yellow"
+                    app:iconGravity="textStart"
+                    app:iconPadding="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCallHelpline"
+                    style="@style/WayGoButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height"
+                    android:layout_marginTop="@dimen/spacing_m"
+                    android:text="Women Helpline (1091)"
+                    app:backgroundTint="@color/accent_red"
+                    android:textColor="@color/white"
+                    app:icon="@android:drawable/ic_menu_call"
+                    app:iconTint="@color/white"
+                    app:iconGravity="textStart"
+                    app:iconPadding="16dp"
+                    app:elevation="4dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCallEmergency"
+                    style="@style/WayGoButton.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height"
+                    android:layout_marginTop="@dimen/spacing_m"
+                    android:text="Call Emergency Contact"
+                    android:textColor="@color/white"
+                    app:strokeColor="@color/border_dark"
+                    app:icon="@android:drawable/ic_menu_call"
+                    app:iconTint="@color/accent_yellow"
+                    app:iconGravity="textStart"
+                    app:iconPadding="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_l"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="@style/WayGoButton.Tonal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:text="I am safe, stop SOS"
+            android:textColor="@color/text_secondary"
+            android:fontFamily="sans-serif-black" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
